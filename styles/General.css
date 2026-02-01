@@ -76,3 +76,24 @@ p{
     width: 100%;
     font-size: clamp(10px, 3dvw, 20px);
 }
+.image{
+    width: clamp(100px, 50dvw, 400px);
+    margin: 100px auto 0;
+    display: block;
+}
+.header{
+
+    width: 90dvw;
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: clamp(10px, 4dvw, 25px);
+    padding: 2dvw;
+    box-shadow:1px 1px 5px 0 #202020;
+
+
+    span{
+        width: 100%;
+    }
+}
