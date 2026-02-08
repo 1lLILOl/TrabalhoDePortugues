@@ -3,6 +3,10 @@
     height: 80dvh;
     width: 100dvw;
     position: relative;
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    transition: filter 0.4s ease;
 }
 
 #Dialogue{
@@ -21,18 +25,28 @@
     font-size: clamp(15px, 4dvw, 35px);
     color: white;
     margin-bottom: 15px;
+    text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black;
 }
 
 #Dialogue p{
-    text-align: center;
     font-size: clamp(10px, 3dvw, 25px);
     color: white;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black;
 }
 
 #Dialogue button{
     text-align: center;
     margin: 5px;
     padding: 1dvw;
+    border-radius: 5%;
+    border: 1px solid #506787;
+}
+
+#Dialogue button:hover{
+    border: #324aa1 1px solid;
+    background-color: #182a6d;
+    color: blanchedalmond;
 }
 
 
