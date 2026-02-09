@@ -1,4 +1,5 @@
 let currentlyRoute = "initial";
+let currentBackground = null;
 
 function typewriter(element){
     const fullText = element.textContent;
@@ -23,9 +24,9 @@ const dialogue = document.getElementById("Dialogue");
 const divs = document.querySelectorAll(".text");
 const reset = document.getElementById("reset");
 
-setTimeout(() => {
-    changeBackground(currentlyRoute);
-},400)
+//setTimeout(() => {
+//    changeBackground(currentlyRoute);
+//},400)
 
 function ChangeDialogue(div) {
   const elements = Array.from(div.children);
@@ -33,27 +34,31 @@ function ChangeDialogue(div) {
 
   function showNext() {
     if (index >= elements.length) return;
-
-    dialogue.innerHTML = "";
-
-    const nameH2 = document.createElement("h2");
-    dialogue.appendChild(nameH2);
-    nameH2.id = "Name";
-
-    const el = elements[index].cloneNode(true);
-    dialogue.appendChild(el);
-    typewriter(el);
-
-    nameH2.textContent = el.dataset.h2;
-  
-    if (el.tagName === "P") {
-        if (elements[index + 1]?.tagName === "DIV"){
+      
+      dialogue.innerHTML = "";
+      
+      const nameH2 = document.createElement("h2");
+      dialogue.appendChild(nameH2);
+      nameH2.id = "Name";
+      
+      const el = elements[index].cloneNode(true);
+      dialogue.appendChild(el);
+      typewriter(el);
+      
+      changeBackground(el.dataset.img);
+      
+      nameH2.textContent = el.dataset.h2;
+      
+      if (el.tagName === "P") {
+          if (elements[index + 1]?.tagName === "DIV"){
 
             const btnDiv = elements[index + 1];
             el.addEventListener("click", () => showChooses(btnDiv), { once: true });
-        }else{
+              
+          }else{
             el.addEventListener("click", showNext, { once: true });
-        }
+              
+          }
     }
 
     index++;
@@ -74,7 +79,6 @@ function showChooses(btnDiv){
         clone.addEventListener("click", () => {
             reset.style.display = "block";
             currentlyRoute = clone.value;
-            changeBackground(currentlyRoute);
             dialogue.innerHTML = "";
             ChangeDialogue(document.getElementById(clone.value + "Text"));
         });
@@ -96,11 +100,10 @@ function resetToInitial() {
 reset.addEventListener("click", resetToInitial);
 
 
-let currentBackground = null;
-
 function changeBackground(path) {
+    console.log(`tentei trocar para ${path}`)
   const newBg = `url("../img/${path}.jpeg")`;
-
+    
   if (currentBackground === newBg) return;
   currentBackground = newBg;
 
