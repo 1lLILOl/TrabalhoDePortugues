@@ -24,10 +24,6 @@ const dialogue = document.getElementById("Dialogue");
 const divs = document.querySelectorAll(".text");
 const reset = document.getElementById("reset");
 
-//setTimeout(() => {
-//    changeBackground(currentlyRoute);
-//},400)
-
 function ChangeDialogue(div) {
   const elements = Array.from(div.children);
   let index = 0;
@@ -85,14 +81,12 @@ function showChooses(btnDiv){
     })
 }
 
-ChangeDialogue(document.getElementById("initialText"));
-
 
 function resetToInitial() {
   dialogue.innerHTML = "";
   currentlyRoute = "initial";
   reset.style.display = "none";
-  changeBackground(currentlyRoute);
+  changeBackground("casa");
   ChangeDialogue(document.getElementById("initialText"));
 }
 
@@ -101,8 +95,7 @@ reset.addEventListener("click", resetToInitial);
 
 
 function changeBackground(path) {
-    console.log(`tentei trocar para ${path}`)
-  const newBg = `url("../img/${path}.jpeg")`;
+  const newBg = `url("img/${path}.jpg")`;
     
   if (currentBackground === newBg) return;
   currentBackground = newBg;
@@ -114,3 +107,17 @@ function changeBackground(path) {
     game.style.filter = "brightness(1)";
   }, 400);
 }
+
+
+const playScreen = document.querySelector(".playScreen");
+const playButton = document.querySelector("#playButton");
+
+changeBackground("vilaFogo");
+
+playButton.addEventListener("click", (() => {
+  playScreen.style.display = "none";
+  dialogue.style.display = "block";
+  ChangeDialogue(document.getElementById("initialText"));
+  
+}))
+

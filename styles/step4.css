@@ -10,6 +10,7 @@
 }
 
 #Dialogue{
+    display: none; 
     width: 90%;
     margin-left: 5%;
     height: clamp(max-content, 15%, 300px);
@@ -62,4 +63,40 @@
     top: 1%;
     padding: 4px;
     display: none;
+}
+
+.playScreen{
+    position: absolute;
+    width: 80%;
+    height: 60%;
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4%;
+    border: 3px solid #182a6d;
+    display: flex;
+    
+    flex-direction: column;
+    
+
+    #playButton{
+        width: 40%;
+        height: 20%;
+        font-size: 4dvw;
+        margin: auto;
+        border: #182a6d 1px solid;
+        border-radius: 2dvw;
+        background-color: #c3c782da;
+        cursor: pointer;
+    }
+    #playButton:hover{
+        color: white;
+        background-color: #324aa1;
+    }
+
+    h1{
+        text-shadow: 1px 1px #182a6d, -1px 1px #182a6d, 1px -1px #182a6d, -1px -1px #182a6d;
+    }
 }
