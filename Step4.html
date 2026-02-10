@@ -34,7 +34,7 @@
 
             <h1 class="title"> Game Name </h1>
 
-            <button id="playButton"> Play </button>
+            <button id="playButton"> Jogar </button>
         </div>
 
         <div id="queue">
@@ -86,14 +86,14 @@
             
             <div class="text" id="ascencao">
                 
-                <p data-h2="" data-img="casa">
+                <p data-h2="" data-img="casa" class="finalP">
                     Você ascendeu
                 </p>
             </div>
             
             <div class="text" id="indioMata">
                 
-                <p data-h2="" data-img="casa">
+                <p data-h2="" data-img="casa" class="finalP">
                     Você e os indio morreu
                 </p>
             </div>
@@ -122,24 +122,24 @@
                 </p>
                 
                 <p data-h2="voce mesmo" data-img="florestaClara">
-                    Vai atacar a aldeia?
+                    Deve atacar a aldeia imediatamente?
                 </p>
                 
                 <div>
                     <button type="button" value="aldeiaAtacada">
-                        Sim
+                        Atacar agora
                     </button>
                     
                     <button type="button" value="aldeiaRato" data-final="aldeiaRato">
-                        Não
+                        Esperar
                     </button>
                 </div>
             </div>
             
             <div class="texto" id="aldeiaRato">
                 
-                <p data-h2="" data-img="florestaClara">
-                    aldeia morreu pela praga que vc trouxs
+                <p data-h2="" data-img="florestaClara" class="finalP">
+                    aldeia morreu pela praga que vc trouxe
                 </p>
             </div>
             
@@ -162,21 +162,21 @@
             
             <div class="text" id="colonLimpa">
                 
-                <p data-h2="" data-img="florestaEscura">
+                <p data-h2="" data-img="florestaEscura" class="finalP">
                     Você cometeu um assassinato em massa
                 </p>
             </div>
             
             <div class="text" id="canibalizado">
                 
-                <p data-h2="" data-img="florestaEscura">
+                <p data-h2="" data-img="florestaEscura" class="finalP">
                     Após aceitar a derrota, foi brutalmente comido pelos nativos
                 </p>
             </div>
             
             <div class="text" id="mortoCompanheiros">
                 
-                <p data-h2="" data-img="inferno">
+                <p data-h2="" data-img="inferno" class="finalP">
                     Você se recusou a morrer, mas seus companheiros te mataram e vc foi pro inferno
                 </p>
             </div>
@@ -184,7 +184,19 @@
         </div>
 
     </div>
+    
+    <p>
+        Não históricamente coerente, este texto toma liberdades poéticas.
+    </p>
 
+    <div id="routesDiv">
+        <h2 class="subtitle"> Quantidade de finais: 6 </h2>
+        
+        <h2 class="subtitle"> Finais conquistados: </h2>
+        
+        <ul id="routesUl"></ul>
+    </div>
+    
     <script src="scripts/step4.js"></script>
 </body>
 </html>

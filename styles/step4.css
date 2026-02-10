@@ -21,6 +21,25 @@
     bottom: 5%;
     border-radius: 5%;
 }
+#routesDiv{
+    display: none;
+}
+#Dialogue.finalDialogue{
+    height: 60%;
+    bottom: 20%;
+}
+#Dialogue .title{
+    display: block;
+    text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black;
+    color: whitesmoke;
+}
+#Dialogue .finalP{
+    font-size: clamp(15px, 5dvw, 35px);
+    color: white;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black;
+    text-align: center;
+}
 
 #Dialogue #Name{
     font-size: clamp(15px, 4dvw, 35px);
@@ -50,7 +69,6 @@
     background-color: #182a6d;
     color: blanchedalmond;
 }
-
 
 #queue{
     display: none;

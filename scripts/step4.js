@@ -1,6 +1,14 @@
 let currentlyRoute = "initial";
 let currentBackground = null;
 let factors = {};
+let routes = {
+    ascencao: "Consciência",
+    indioMata: "Tentativa",
+    aldeiaRato: "Pestilência branca",
+    colonLimpa: "Dominação",
+    canibalizado: "À glória",
+    mortoCompanheiros: "Resistir"
+}
 
 function typewriter(element){
     const fullText = element.textContent;
@@ -86,7 +94,7 @@ function showChooses(btnDiv){
             if (final){
                 
                 if (final === "aldeiaRato" && !factors["mouse"]) {
-                    alert("final nao detectado, benjamin nao pensou nisso");
+                    ChangeDialogue(document.getElementById("aldeiaAtacadaText"));
                     return;
                 }
                 if (final === "canibalizado" && factors["mouse"]) {
@@ -110,6 +118,7 @@ function resetToInitial() {
   dialogue.style.display = "block";  
   currentlyRoute = "initial";
   reset.style.display = "none";
+  dialogue.classList.remove("finalDialogue")  
   changeBackground("casa");
   ChangeDialogue(document.getElementById("initialText"));
 }
@@ -155,4 +164,21 @@ function playFinal(final){
     }
 
     ChangeDialogue(el);
+    
+    const title = document.createElement("span");
+    title.classList.add("title");
+    title.textContent = routes[final];
+    dialogue.appendChild(title);
+    dialogue.prepend(title);
+    
+    dialogue.classList.add("finalDialogue");
+    
+    const routesDiv = document.getElementById("routesDiv");
+    routesDiv.style.display = "block";
+    
+    const ul = document.getElementById("routesUl");
+    const li = document.createElement("li");
+    li.textContent = routes[final];
+    ul.appendChild(li);
+    
 }
