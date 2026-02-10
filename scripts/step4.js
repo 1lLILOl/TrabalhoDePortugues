@@ -6,11 +6,11 @@ let routes = {
     indioMata: "Tentativa",
     aldeiaRato: "Pestilência branca",
     colonLimpa: "Dominação",
-    canibalizado: "À glória",
+    morteDigna: "À glória",
     mortoCompanheiros: "Resistir"
 }
 
-function typewriter(element){
+function typewriter(element, onFinish){
     const fullText = element.textContent;
     element.textContent = "";             
 
@@ -22,6 +22,8 @@ function typewriter(element){
             element.textContent += fullText[i];
             i++;
             setTimeout(type, speed);
+        }else{
+            if (onFinish) onFinish();
         }
     }
 
@@ -37,11 +39,14 @@ function ChangeDialogue(div) {
     
   const elements = Array.from(div.children);
   let index = 0;
-
-  function showNext() {
+    
+  function showNext(blank) {
+      
     if (index >= elements.length) return;
       
-      dialogue.innerHTML = "";
+      if(blank){
+          dialogue.innerHTML = "";
+      }
       
       const nameH2 = document.createElement("h2");
       dialogue.appendChild(nameH2);
@@ -49,9 +54,29 @@ function ChangeDialogue(div) {
       
       const el = elements[index].cloneNode(true);
       dialogue.appendChild(el);
-      typewriter(el);
       
-      changeBackground(el.dataset.img);
+      dialogue.scrollTop += el.getBoundingClientRect().bottom * 2;
+      
+      typewriter(el, () =>{
+          
+      if (el.dataset.jumpTo){
+          ChangeDialogue(document.getElementById(el.dataset.jumpTo));
+          return;
+      }
+      if (el.dataset.playFinal){
+          playFinal(el.dataset.playFinal);
+          return;
+      }
+      if (el.dataset.playNext){
+          showNext(false);
+          return;
+      }    
+          
+      });
+      
+      if (el.dataset.img){
+          changeBackground(el.dataset.img);
+      }
       
       nameH2.textContent = el.dataset.h2;
       
@@ -62,7 +87,7 @@ function ChangeDialogue(div) {
             el.addEventListener("click", () => showChooses(btnDiv), { once: true });
               
           }else{
-            el.addEventListener("click", showNext, { once: true });
+            el.addEventListener("click", () => showNext(true), { once: true });
               
           }
     }
@@ -70,7 +95,7 @@ function ChangeDialogue(div) {
     index++;
   }
 
-  showNext();
+  showNext(true);
 }
 
 function showChooses(btnDiv){
@@ -78,6 +103,9 @@ function showChooses(btnDiv){
     const buttons = Array.from(btnDiv.children);
 
     buttons.forEach(button => {
+        
+        const neededFactor = button.dataset.needFactor;
+        if (neededFactor && !factors[neededFactor]) return;
 
         const clone = button.cloneNode(true);
         dialogue.appendChild(clone);
@@ -94,7 +122,7 @@ function showChooses(btnDiv){
             if (final){
                 
                 if (final === "aldeiaRato" && !factors["mouse"]) {
-                    ChangeDialogue(document.getElementById("aldeiaAtacadaText"));
+                    ChangeDialogue(document.getElementById("esperarAtacarText"));
                     return;
                 }
                 if (final === "canibalizado" && factors["mouse"]) {

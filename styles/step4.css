@@ -26,7 +26,8 @@
 }
 #Dialogue.finalDialogue{
     height: 60%;
-    bottom: 20%;
+    top: 20%;
+    overflow-y: scroll;
 }
 #Dialogue .title{
     display: block;
@@ -36,7 +37,7 @@
 #Dialogue .finalP{
     font-size: clamp(15px, 5dvw, 35px);
     color: white;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black;
     text-align: center;
 }
