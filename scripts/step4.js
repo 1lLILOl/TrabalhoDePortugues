@@ -1,5 +1,6 @@
 let currentlyRoute = "initial";
 let currentBackground = null;
+let factors = {};
 
 function typewriter(element){
     const fullText = element.textContent;
@@ -25,6 +26,7 @@ const divs = document.querySelectorAll(".text");
 const reset = document.getElementById("reset");
 
 function ChangeDialogue(div) {
+    
   const elements = Array.from(div.children);
   let index = 0;
 
@@ -76,14 +78,36 @@ function showChooses(btnDiv){
             reset.style.display = "block";
             currentlyRoute = clone.value;
             dialogue.innerHTML = "";
+            
+            const factor = clone.dataset.factor;
+            const final = clone.dataset.final;
+            
+            if (factor) factors[factor] = true;
+            if (final){
+                
+                if (final === "aldeiaRato" && !factors["mouse"]) {
+                    alert("final nao detectado, benjamin nao pensou nisso");
+                    return;
+                }
+                if (final === "canibalizado" && factors["mouse"]) {
+                    playFinal("mortoCompanheiros");
+                    return;
+                }
+                
+                
+                playFinal(final);
+                return;
+            } 
+            
             ChangeDialogue(document.getElementById(clone.value + "Text"));
         });
     })
 }
 
-
 function resetToInitial() {
+  factors = {};  
   dialogue.innerHTML = "";
+  dialogue.style.display = "block";  
   currentlyRoute = "initial";
   reset.style.display = "none";
   changeBackground("casa");
@@ -121,3 +145,14 @@ playButton.addEventListener("click", (() => {
   
 }))
 
+
+function playFinal(final){
+    const el = document.getElementById(final);
+
+    if (!el) {
+        console.error("Final não encontrado:", final);
+        return;
+    }
+
+    ChangeDialogue(el);
+}
