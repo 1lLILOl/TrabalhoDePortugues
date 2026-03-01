@@ -87,36 +87,42 @@
 .playScreen{
     position: absolute;
     width: 80%;
-    height: 60%;
-    background-color: transparent;
-    backdrop-filter: blur(5px);
-    top: 50%;
+    height: clamp(300px, 60%, 1000px);
+    /*background-color: transparent;*/
+    /*backdrop-filter: blur(5px);*/
+    top: clamp(200px, 50%, 1000px);
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 4%;
-    border: 3px solid #182a6d;
+    /*border-radius: 4%;
+    border: 3px solid #182a6d;*/
     display: flex;
     
     flex-direction: column;
     
 
     #playButton{
-        width: 40%;
-        height: 20%;
-        font-size: 4dvw;
+        width: clamp(50px, 40%, 150px);
+        /*height: 20%;*/
+        font-size: clamp(10px, 5dvw, 20px);
+        aspect-ratio: 5/2;
         margin: auto;
-        border: #182a6d 1px solid;
-        border-radius: 2dvw;
-        background-color: #c3c782da;
+        border: whitesmoke 1px solid;
+        border-radius: 1dvw;
+        background-color: #666;
         cursor: pointer;
+        color: #ddd;
     }
     #playButton:hover{
         color: white;
-        background-color: #324aa1;
+        background-color: #223a41;
+        border: none;
     }
 
     h1{
-        text-shadow: 1px 1px #182a6d, -1px 1px #182a6d, 1px -1px #182a6d, -1px -1px #182a6d;
+        /*text-shadow: 1px 1px #182a6d, -1px 1px #182a6d, 1px -1px #182a6d, -1px -1px #182a6d;  */ 
+        font-size: clamp(15px, 10dvw, 50px);  
+        color: #ddd;
+        text-shadow: 1px 1px black, -1px 1px black, 1px -1px black, -1px -1px black; 
     }
 }
 
