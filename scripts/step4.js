@@ -9,6 +9,15 @@ let routes = {
     morteDigna: "À glória",
     mortoCompanheiros: "Resistir"
 }
+let routesColor = {
+    ascencao: "#ccc",
+    indioMata: "#ccc",
+    aldeiaRato: "#ccc",
+    colonLimpa: "#ccc",
+    morteDigna: "#ccc",
+    mortoCompanheiros: "#ccc"
+}
+
 
 function typewriter(element, onFinish){
     const fullText = element.textContent;
@@ -172,10 +181,10 @@ function changeBackground(path) {
 
 const playScreen = document.querySelector(".playScreen");
 const playButton = document.querySelector("#playButton");
-
-changeBackground("vilaFogo");
+const startVideo = document.getElementById("startVideo");
 
 playButton.addEventListener("click", (() => {
+    startVideo.style.display = "none";
   playScreen.style.display = "none";
   dialogue.style.display = "block";
   ChangeDialogue(document.getElementById("initialText"));
@@ -209,4 +218,14 @@ function playFinal(final){
     li.textContent = routes[final];
     ul.appendChild(li);
     
+    const achiv = document.getElementById("achievements");
+    achievements.style.display = "block";
+    
+    const nameAchiv = document.getElementById("nameAchievements");
+    nameAchiv.textContent = routes[final];
+    nameAchiv.style.color = routesColor[final];
+    
+    setInterval(() =>{
+        achievements.style.display = "none";
+    },2000);
 }

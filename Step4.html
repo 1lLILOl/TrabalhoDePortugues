@@ -19,6 +19,10 @@
     </nav>
 
     <div class="game">
+        
+        <video id="startVideo" autoplay muted loop playsinline>
+            <source src="videos/startScreen.mp4" type="video/mp4">
+        </video>
 
         <div id="Dialogue">
             <h2 id="Name">who</h2>
@@ -32,9 +36,10 @@
 
         <div class="playScreen">
 
-            <h1 class="title"> Game Name </h1>
+            <h1 class="title"> *Game Name* </h1>
 
             <button id="playButton"> Jogar </button>
+
         </div>
 
         <div id="queue">
@@ -395,6 +400,15 @@
         <h2 class="subtitle"> Finais conquistados: </h2>
         
         <ul id="routesUl"></ul>
+    </div>
+    
+    <div id="achievements">
+        <span>
+            Nova conquista desbloqueada:
+        </span>
+        <span id="nameAchievements">
+           
+        </span>
     </div>
     
     <script src="scripts/step4.js"></script>

@@ -119,3 +119,41 @@
         text-shadow: 1px 1px #182a6d, -1px 1px #182a6d, 1px -1px #182a6d, -1px -1px #182a6d;
     }
 }
+
+#achievements{
+    width: 40%;
+    aspect-ratio: 4/3;
+    position: absolute;
+    top: 2dvw;
+    right: 2dvw;
+    z-index: 15;
+    border: 1px solid blue;
+    background: #ddd no-repeat;
+    background-size: cover;
+    padding: 15px;
+    color: black;
+    animation: achiv 0.2s;
+    display: none;
+    
+    #nameAchievements{
+        color: green;
+    }
+}
+@keyframes achiv{
+    0%{
+        transform: translateY(300%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+#startVideo{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
