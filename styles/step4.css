@@ -128,16 +128,17 @@
 
 #achievements{
     width: 40%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 7/3;
     position: absolute;
     top: 2dvw;
     right: 2dvw;
     z-index: 15;
-    border: 1px solid blue;
-    background: #ddd no-repeat;
+    border: 3px solid #666;
+    border-radius: 5px;
+    background: #020a11 no-repeat;
     background-size: cover;
     padding: 15px;
-    color: black;
+    color: yellow;
     animation: achiv 0.2s;
     display: none;
     

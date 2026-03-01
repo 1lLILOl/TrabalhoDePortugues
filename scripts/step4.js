@@ -10,12 +10,12 @@ let routes = {
     mortoCompanheiros: "Resistir"
 }
 let routesColor = {
-    ascencao: "#ccc",
-    indioMata: "#ccc",
-    aldeiaRato: "#ccc",
-    colonLimpa: "#ccc",
-    morteDigna: "#ccc",
-    mortoCompanheiros: "#ccc"
+    ascencao: "#fff",
+    indioMata: "#c1d7c6",
+    aldeiaRato: "#c4f3c7",
+    colonLimpa: "#e396a0",
+    morteDigna: "#f18674",
+    mortoCompanheiros: "#c6d3ff"
 }
 
 
